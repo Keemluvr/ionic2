@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController, Alert, Button } from 'ionic-angular';
 import { Http} from '@angular/http'
 
+import {EscolhaPage } from '../escolha/escolha';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -52,8 +54,13 @@ export class HomePage implements OnInit{
     ]*/
   }
 
-ngOnInit() {
+  seleciona(carro){
+    this.navCtrl.push(EscolhaPage, {carroSelecionado: carro});
+  }
 
-}
+
+  ngOnInit() {
+
+  }
 
 }

@@ -1,35 +1,54 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>
+  <ion-navbar>
+    <ion-title>
 
-        </ion-title>
-    </ion-navbar>
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <ion-card>
-        <ion-card-content>
-            <ion-item-group>
-                <ion-item-divider color="light">
-                    <ion-icon ios="ios-car" md="md-car" item-start></ion-icon>
-                    Veículo
-                </ion-item-divider>
-                <ion-item>{{ carro.nome }}</ion-item>
-                <ion-item>R${{ carro.preco }}</ion-item>
-                <img src="../../assets/img/azera V6.jpg"/>
-            </ion-item-group>
-        </ion-card-content>
-    </ion-card>
-    <ion-card>
-        <ion-card-content>
-            <ion-item-group>
-                <ion-item-divider color="light">
-                    <ion-icon ios="ios-car" md="md-car" float-left ></ion-icon>
-                    Acessórios
-                </ion-item-divider>
-                <ion-item>Acessorio 1</ion-item>
-                <ion-item>Acessorio 2</ion-item>
-            </ion-item-group>
-        </ion-card-content>
-    </ion-card>
-    <button ion-button block>Avançar no agendamento</button>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item-group>
+
+        <ion-item-divider color="light">
+          <ion-icon ios="ios-car" md="md-car" item-start></ion-icon>
+          Veículo
+        </ion-item-divider>
+
+        <ion-item>{{ carro.nome }}</ion-item>
+        <ion-item>R${{ carro.preco }}</ion-item>
+        <img src="../../assets/img/azera V6.jpg" />
+      </ion-item-group>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-item-group>
+
+        <ion-item-divider color="light">
+          <ion-icon ios="ios-car" md="md-car" float-left></ion-icon>
+          Acessórios
+        </ion-item-divider>
+
+        <!-- construindo a lista de acessórios dinamicamente -->
+        <ion-item *ngFor="let acessorio of acessorios">
+          <ion-label>
+            <h2>{{acessorio.nome}}</h2>
+            <h3>R${{acessorio.preco}}</h3>
+          </ion-label>
+          <ion-toggle #toggle color="secondary" (ionChange)="atualizaTotal(toggle.checked, acessorio)"></ion-toggle>
+        </ion-item>
+
+      </ion-item-group>
+      <!--Preço total-->
+      <ion-item-divider color="light" style="text-align:right; background-color:#D9C8A7">
+        Total: R$ {{  precoTotal }}
+      </ion-item-divider>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <button ion-button block style="background-color: #8C7F75">Avançar no agendamento</button>
+
 </ion-content>

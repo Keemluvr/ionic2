@@ -3,7 +3,7 @@ import { NavController, LoadingController, AlertController, Alert, Button } from
 import { Http} from '@angular/http'
 
 import { Carro } from '../../domain/carro/carro';
-import {EscolhaPage } from '../escolha/escolha';
+import { EscolhaPage } from '../escolha/escolha';
 
 @Component({
   selector: 'page-home',

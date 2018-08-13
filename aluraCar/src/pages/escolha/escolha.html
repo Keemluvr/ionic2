@@ -41,7 +41,7 @@
 
       </ion-item-group>
       <!--Preço total-->
-      <ion-item-divider color="light" style="text-align:right; background-color:#D9C8A7">
+      <ion-item-divider color="light" style="text-align:right;">
         Total: R$ {{  precoTotal }}
       </ion-item-divider>
 
@@ -49,6 +49,6 @@
 
   </ion-card>
 
-  <button ion-button block style="background-color: #8C7F75">Avançar no agendamento</button>
+  <button ion-button block (click)="avancaNoAgendamento()">Avançar no agendamento</button>
 
 </ion-content>
